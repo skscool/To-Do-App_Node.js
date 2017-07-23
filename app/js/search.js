@@ -1,3 +1,4 @@
+// if anonymous redirect to the home page.
 //on onloading window refresh to do task and done task
 
 window.onload = function(){
@@ -6,10 +7,13 @@ window.onload = function(){
     }
  loadToDoTask();
  loadDoneTask();
+ //set the title to the search by tag name using the session stored value (done in /tag page).
  document.getElementById("thingsTODO").innerHTML = '<h2>Things To Do in '+sessionStorage.tag+'...</h2>';
  document.getElementById("thingsDone").innerHTML = '<h2>Things Done in '+sessionStorage.tag+'...</h2>';
 }
 
+
+//render tasks sorted by most recently created
 function loadToDoTask(){
     var auth_token = readCookie("auth_token");
     var request = new XMLHttpRequest();
@@ -33,6 +37,7 @@ function loadToDoTask(){
     request.send(JSON.stringify({type: "select",args: {table: "Task", columns: ["Task","Time"],where: {Done: "0",Tag_Name: sessionStorage.tag}, order_by: "-Time"}}));
 }
 
+//render done tasks sorted by most recently created
 function loadDoneTask(){
     var auth_token = readCookie("auth_token");
     var request2 = new XMLHttpRequest();
@@ -57,6 +62,7 @@ function loadDoneTask(){
 }
 
 
+//mark as done by changing done value in database to 1, on success refresh the lists of tasks.
 function markAsDone(obj){
     var task = obj.innerHTML;
     
@@ -76,7 +82,8 @@ function markAsDone(obj){
     request3.send(JSON.stringify({type: "update",args: {table: "Task", $set: {Done: "1"},where: {Task: task}}}));
 }
 
-//delete by task
+
+//delete by task and refresh done tasks
 function deleteTask(obj){
     var task = obj.innerHTML;
     
@@ -85,6 +92,7 @@ function deleteTask(obj){
     request4.onreadystatechange = function(){
         if(request4.readyState === XMLHttpRequest.DONE){
             if(request3.status === 200){
+                alert("Task has been deleted !");
                 }
             }
         }

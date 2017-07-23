@@ -1,3 +1,5 @@
+//redirect the logged in users to the /task page
+
 window.onload = function(){
         if(readCookie("username") != ''&& document.cookie !=''){
         window.location.href='/task';
@@ -12,7 +14,6 @@ function loginUser(){
     var username = document.getElementById("u_username").value;
     var pass = document.getElementById("u_pass").value;
     var serverResponseJSON;
-    alert("hey");
     
     //make POST request to login with username and password
     var request = new XMLHttpRequest();
@@ -20,7 +21,6 @@ function loginUser(){
     if(request.readyState === XMLHttpRequest.DONE){
       if(request.status === 200){
         alert('logged in successfully!');
-          alert(request.responseText);
           serverResponseJSON = JSON.parse(request.responseText);
       }else if(request.status === 403){
         alert('username/password incorrect');
@@ -39,10 +39,12 @@ function loginUser(){
     document.cookie = "auth_token="+serverResponseJSON.auth_token+";path=/";
     document.cookie = "hasura_id="+serverResponseJSON.hasura_id+";path=/";
     
-    alert(document.cookie);
+    //after login redirect to the /task page.
     window.location.href='/task';
     
 }
+
+//return value of the requested attribute of the cookie
 function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');

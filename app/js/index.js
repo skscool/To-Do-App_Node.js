@@ -1,9 +1,11 @@
-    window.onload = function(){
+//if an entry is there for the username property that means user is logged in >> redirect to /task page
+window.onload = function(){
         if(readCookie("username") != '' && document.cookie !=''){
         window.location.href='/task';   
         }
     }
 
+//return the value of the property requested from the cookies.
 function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');

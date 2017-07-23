@@ -1,3 +1,4 @@
+//Redirect logged in users to the /task page.
 window.onload = function(){
         if(readCookie("username") != ''&& document.cookie !=''){
         window.location.href='/task';
@@ -15,8 +16,8 @@ function registerUser(){
     var pass = document.getElementById("u_pass").value;
     var serverResponseJSON;
     var id;
-    alert("hey");
     
+    //to avoid any error due to database not null violation
     if(username==''||name==''||email==''||pass==''){
        alert("All fields are required!");
         return;
@@ -26,8 +27,6 @@ function registerUser(){
   request.onreadystatechange = function(){
     if(request.readyState === XMLHttpRequest.DONE){
       if(request.status === 200){
-        alert('Signed up successfully!');
-          alert(request.responseText);
           serverResponseJSON = JSON.parse(request.responseText);
           id = serverResponseJSON.hasura_id;
       }else if(request.status === 400){
@@ -49,7 +48,6 @@ function registerUser(){
     if(request2.readyState === XMLHttpRequest.DONE){
       if(request2.status === 200){
         alert('Registered Successfully!');
-          alert(request.responseText);
               //redirect to login page on successful signup
             window.location.href= "/login";
       }else if(request2.status === 500){

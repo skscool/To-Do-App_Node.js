@@ -1,4 +1,5 @@
 //on onloading window refresh to do task and done task
+//redirect anonymous users back to the homepage
 
 window.onload = function(){
         if(readCookie("username") == ''|| document.cookie==''){
@@ -8,6 +9,8 @@ window.onload = function(){
  loadDoneTask();
 }
 
+
+//fetch the tasks to do and sort by recently added.
 function loadToDoTask(){
     var auth_token = readCookie("auth_token");
     var request = new XMLHttpRequest();
@@ -31,6 +34,8 @@ function loadToDoTask(){
     request.send(JSON.stringify({type: "select",args: {table: "Task", columns: ["Task","Time"],where: {Done: "0"}, order_by: "-Time"}}));
 }
 
+
+// fetch done task and order by recently added.
 function loadDoneTask(){
     var auth_token = readCookie("auth_token");
     var request2 = new XMLHttpRequest();
@@ -54,7 +59,7 @@ function loadDoneTask(){
     request2.send(JSON.stringify({type: "select",args: {table: "Task", columns: ["Task","Time"],where: {Done: "1"}, order_by: "-Time"}}));
 }
 
-
+//mark as done by changing done value in database to 1, on success refresh the lists of tasks.
 function markAsDone(obj){
     var task = obj.innerHTML;
     
@@ -74,7 +79,7 @@ function markAsDone(obj){
     request3.send(JSON.stringify({type: "update",args: {table: "Task", $set: {Done: "1"},where: {Task: task}}}));
 }
 
-//delete by task
+//delete by task and refresh done tasks.
 function deleteTask(obj){
     var task = obj.innerHTML;
     
@@ -83,6 +88,7 @@ function deleteTask(obj){
     request4.onreadystatechange = function(){
         if(request4.readyState === XMLHttpRequest.DONE){
             if(request3.status === 200){
+                alert("Task deleted successfully !");
                 }
             }
         }

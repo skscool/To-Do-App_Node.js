@@ -1,9 +1,12 @@
+//redirect anonymous users back to the homepage
+
 window.onload=function(){
             if(readCookie("username") == ''|| document.cookie==''){
         window.location.href='/';
     }
 }
 
+//save the tag value clicked on in the HTML5 session variable and redirect to the /search page
 function searchByTag(obj){
     sessionStorage.tag = obj.innerHTML;
     window.location.href= "/search";
