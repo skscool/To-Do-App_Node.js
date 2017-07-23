@@ -30,7 +30,7 @@ function loginUser(){
     }
   };
     
-  request.open('POST', 'http://auth.c100.hasura.me/login',false);
+  request.open('POST', 'http://auth.satyamsingh.hasura.me/login',false);
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(JSON.stringify({username: username, password: pass}));
 

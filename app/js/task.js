@@ -25,7 +25,7 @@ function loadToDoTask(){
             }
         }
     }
-    request.open('POST','http://data.c100.hasura.me/v1/query',true);
+    request.open('POST','http://data.satyamsingh.hasura.me/v1/query',true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.setRequestHeader('Authorization', 'Bearer '+ auth_token);
     request.send(JSON.stringify({type: "select",args: {table: "Task", columns: ["Task","Time"],where: {Done: "0"}, order_by: "-Time"}}));
@@ -48,7 +48,7 @@ function loadDoneTask(){
             }
         }
     }
-    request2.open('POST','http://data.c100.hasura.me/v1/query',true);
+    request2.open('POST','http://data.satyamsingh.hasura.me/v1/query',true);
     request2.setRequestHeader('Content-Type', 'application/json');
     request2.setRequestHeader('Authorization', 'Bearer '+ auth_token);
     request2.send(JSON.stringify({type: "select",args: {table: "Task", columns: ["Task","Time"],where: {Done: "1"}, order_by: "-Time"}}));
@@ -68,7 +68,7 @@ function markAsDone(obj){
                 }
             }
         }
-    request3.open('POST','http://data.c100.hasura.me/v1/query',true);
+    request3.open('POST','http://data.satyamsingh.hasura.me/v1/query',true);
     request3.setRequestHeader('Content-Type', 'application/json');
     request3.setRequestHeader('Authorization', 'Bearer '+ auth_token);
     request3.send(JSON.stringify({type: "update",args: {table: "Task", $set: {Done: "1"},where: {Task: task}}}));
@@ -86,7 +86,7 @@ function deleteTask(obj){
                 }
             }
         }
-    request4.open('POST','http://data.c100.hasura.me/v1/query',false);
+    request4.open('POST','http://data.satyamsingh.hasura.me/v1/query',false);
     request4.setRequestHeader('Content-Type', 'application/json');
     request4.setRequestHeader('Authorization', 'Bearer '+ auth_token);
     request4.send(JSON.stringify({type: "delete",args: {table: "Task", where: {Task: task}}}));

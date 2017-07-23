@@ -39,7 +39,7 @@ function registerUser(){
       }
     }
   };
-  request.open('POST', 'http://auth.c100.hasura.me/signup',false);
+  request.open('POST', 'http://auth.satyamsingh.hasura.me/signup',false);
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(JSON.stringify({username: username, password: pass,email: email}));
 
@@ -57,7 +57,7 @@ function registerUser(){
       }
     }
   };
-  request2.open('POST', 'http://data.c100.hasura.me/v1/query',false);
+  request2.open('POST', 'http://data.satyamsingh.hasura.me/v1/query',false);
   request2.setRequestHeader('Content-Type', 'application/json');
   request2.send(JSON.stringify({type: "insert",args: {table: "User_Details", objects: [{User_ID: id,Name: name}]}}));
 }

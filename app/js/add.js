@@ -34,7 +34,7 @@ function addTask(){
       }
     }
   };
-  request.open('POST', 'http://data.c100.hasura.me/v1/query',false);
+  request.open('POST', 'http://data.satyamsingh.hasura.me/v1/query',false);
   request.setRequestHeader('Content-Type', 'application/json');
     request.setRequestHeader('Authorization', 'Bearer '+ auth_token);
   request.send(JSON.stringify({type: "insert",args: {table: "Task", objects: [{Task: task,Tag_Name: sessionStorage.selectedTag,User_ID: id}]}}));
