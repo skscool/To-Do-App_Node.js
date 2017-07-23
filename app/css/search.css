@@ -25,22 +25,23 @@ body{
 #roundButton {
     position: absolute;
     top: 2%;
-    right: 3%;
+    right: 2.5%;
     z-index: 3;
     background-color: #96D9FF;
     margin-bottom: 20px;
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     border-radius: 30%;
     border: 10px solid #0065A6;
     outline: none;
-    transition: transform .3s cubic-bezier(0, .52, 0, 1);
+    transition: all .4s cubic-bezier(0, .52, 0, 1);
 }
 
 #roundButton:hover {
-    background-color: #96D9FF;
+    background-color: #0065A6;
     cursor: pointer;
-    border-color: #003557;
+    border-color: #96D9FF;
+    color: white;
     transform: scale(1.2, 1.2);
 }
 
@@ -167,15 +168,29 @@ body{
 }
 #dev:hover{
     height: 100px;
-    background-color: #BDE293;;
+    background-color: #EEE;;
     color:darkred;
+}
+#devcover{
+    position: absolute;
+    left: 0px; top: 0px;
+    width: 100%;
+    height: 0%;
+    background-color: white;
+    opacity: .8;
+    z-index: 1;
+    transition: all 1s ease-in;
+}
+#dev:hover ~ #devcover{
+    height: 100%;
+    background-color: black;
 }
 #meet{
     font-family: "Brush Script MT",cursive;
 }
 #info{
     font-family: Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
-    color: floralwhite;
+    color: royalblue;
     font-weight: bolder;
     font-stretch: expanded;
     transition: opacity 2s;
