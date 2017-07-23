@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Add New Task</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/add.css"/>
+
+  </head>
+  <body>
+      <div id="logo">
+        <img src="img/logo.jpg">
+      </div>
+      
+      <button id="roundButton"></button>
+      <div id="menu">
+          <ul id="linkList">
+              <a href="/task"><li class="link">To Do Task</li></a>
+              <a href="/tag"><li class="link">Search Tags</li></a>
+              <li class="link" onclick="logout()">Log out</li>
+          </ul>
+      </div>
+      
+     <form id="loginForm" action="/login" method="post">
+          <div class="form-group">
+            <input type="text" class="form-control" name="task" id="u_task" placeholder="New Task" >
+          </div>
+          <div class="btn-group">
+              <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select A Tag!
+              </button>
+              <ul class="dropdown-menu" id="u_tag">
+                <li><a class="dropdown-item" href="#">Work</a></li>
+                <li><a class="dropdown-item" href="#">Grocery</a></li>
+                <li><a class="dropdown-item" href="#">Health</a></li>
+                <li><a class="dropdown-item" href="#">Study</a></li>
+                <li><a class="dropdown-item" href="#">Laundry</a></li>
+                <li><a class="dropdown-item" href="#">Calls</a></li>
+                <li><a class="dropdown-item" href="#">Meeting</a></li>
+                <li><a class="dropdown-item" href="#">Misc</a></li>
+                <div class="dropdown-divider"></div>
+              </ul>
+            </div>
+          <input type="button" onclick="addTask()" class="btn btn-success" style="width: 120px;font-size: 1.7em;padding: 10px;border: white 2px solid;" value="Add">
+    </form> 
+    <div id="dev">
+        <center id="meet">Meet the developer</center>
+        <center id="info">Satyam Singh<br/>B.Tech Final Year (CSE) Asansol Engineering College</center>
+        <div id="empty"></div>
+        <a href="https://www.facebook.com" class="enlarge"><img src="img/me.jpg" id="photo"/></a>
+        <a href="https://www.facebook.com" class="enlarge"><img src="img/fb.gif" id="fb" /></a>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/js/add.js"></script>
+      
+           <script>
+        var button = document.getElementById("roundButton");
+        var menu = document.getElementById("menu");
+
+        button.addEventListener("click", showMenu, false);
+        menu.addEventListener("click", hidemenu, false);
+
+        function showMenu(e){
+          menu.classList.add("show");
+          document.body.style.overflow= "hidden";
+        }
+        function hidemenu(e){
+          menu.classList.remove("show");
+          document.body.style.overflow="auto";
+          e.stopProagation();
+        }
+      </script>
+    </body>
+</html>

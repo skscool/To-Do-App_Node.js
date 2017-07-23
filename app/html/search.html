@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>To Do Tasks By Tag</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/search.css"/>
+
+  </head>
+  <body>
+      <button id="roundButton"></button>
+      <div id="menu">
+          <ul id="linkList">
+          <a href="/add"><li class="link">Add Task</li></a>
+          <a href="/tag"><li class="link">Search Tags</li></a>
+          <a href="/task"><li class="link">To Do List</li></a>
+          <li class="link" onclick="logout()">Log out</li>
+          </ul>
+      </div>
+      <div id="thingsTODO">
+        <h2>Things To Do...</h2>
+      </div>
+      <div id="toDoTask">
+          <ul id="toDoTaskList" class= "taskList">
+          </ul>
+      </div>
+      <div id="thingsDone">
+        <h2>Things Done...</h2>
+      </div>
+      <div id="doneTask">
+          <ul id="doneTaskList" class= "taskList">
+          </ul>      
+      </div>
+      
+    <div id="dev">
+        <center id="meet">Meet the developer</center>
+        <center id="info">Satyam Singh<br/>B.Tech Final Year (CSE) Asansol Engineering College</center>
+        <div id="empty"></div>
+        <a href="https://www.facebook.com/s.k.s.cool" class="enlarge"><img src="img/me.jpg" id="photo"/></a>
+        <a href="https://www.facebook.com/s.k.s.cool" class="enlarge"><img src="img/fb.gif" id="fb" /></a>
+    </div>
+      <script src="/js/search.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      
+   <script>
+        var button = document.getElementById("roundButton");
+        var menu = document.getElementById("menu");
+
+        button.addEventListener("click", showMenu, false);
+        menu.addEventListener("click", hidemenu, false);
+
+        function showMenu(e){
+          menu.classList.add("show");
+          document.body.style.overflow= "hidden";
+        }
+        function hidemenu(e){
+          menu.classList.remove("show");
+          document.body.style.overflow="auto";
+          e.stopProagation();
+        }
+	</script>
+
+  </body>
+</html>
