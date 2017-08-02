@@ -6,7 +6,7 @@ This webapp remembers all the tasks you feed into it and lets you see tasks that
 Tasks can be searched by tags they are assigned.
 
 Technologies used in frontend : HTML5, CSS3, JAVASCRIPT AND AJAX.
-Technology used at backend: NODE.JS AND API SERVICES PROVIDED BY HASURA.
+Technology used at backend: NODE.JS, POSTGRES DBMS AND API SERVICES PROVIDED BY HASURA.
 
 The XMLHTTPRequest are to the WEB APIs provided by hasura middleware, so to run the project hasura has to be setup and deployed locally
 or
